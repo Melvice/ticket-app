@@ -58,9 +58,6 @@ export function TicketList({
               {updatingId === ticket.id ? "Suppression…" : "Supprimer"}
             </button>
           </div>
-          <div className="ticket__footer">
-            <span className="ticket__id">ID: {ticket.id}</span>
-          </div>
         </li>
       ))}
     </ul>
