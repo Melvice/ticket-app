@@ -9,7 +9,7 @@ interface UseTicketsResult {
   reload: () => Promise<void>;
   addTicket: (ticket: Ticket) => void;
   replaceTicket: (ticket: Ticket) => void;
-  deleteTicket: (id: string) => void;
+  removeTicket: (id: string) => void;
 }
 
 /**
@@ -47,9 +47,9 @@ export function useTickets(): UseTicketsResult {
     setTickets((prev) => prev.map((t) => (t.id === updated.id ? updated : t)));
   }, []);
 
-  const deleteTicket = useCallback((id: string) => {
+  const removeTicket = useCallback((id: string) => {
     setTickets((prev) => prev.filter((t) => t.id !== id));
   }, []);
 
-  return { tickets, isLoading, error, reload, addTicket, replaceTicket, deleteTicket };
+  return { tickets, isLoading, error, reload, addTicket, replaceTicket, removeTicket };
 }
